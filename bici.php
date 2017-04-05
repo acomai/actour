@@ -32,14 +32,14 @@ register_deactivation_hook( __FILE__, 'bici_deactivation' );
 register_uninstall_hook(__FILE__, 'bici_uninstall');
 
 function bici_excerpt_more( $more ) {
-	$perma = get_permalink();
-	$post = get_post();
-	echo 'titolo: ';
-	echo $post->post_title;
-	echo ' - autore: ';
-	echo $post->post_author;
-	echo get_the_author_meta('display_name');
-	return ' ...[<a href="the_permalink();"> leggi il resto... </a>]';
+	//$perma = get_permalink();
+	//$post = get_post();
+	//echo 'titolo: ';
+	//echo $post->post_title;
+	//echo ' - autore: ';
+	//echo $post->post_author;
+	//echo get_the_author_meta('display_name');
+	//return ' ...[<a href="the_permalink();"> leggi il resto... </a>]';
 }
 add_filter( 'excerpt_more', 'bici_excerpt_more' );
 
@@ -78,17 +78,47 @@ function create_post_type_percorso() {
 }
 
 
-add_action( 'init', 'create_post_type_itinerario' );
-function create_post_type_itinerario() {
-	register_post_type( 'itinerario',
-			array(
-					'labels' => array(
-							'name' => __( 'Itinerari' ),
-							'singular_name' => __( 'Itinerario' )
-					),
-					'public' => true,
-					'has_archive' => true,
-			)
-			);
+add_action( 'init', 'slow_itinerario_init' );
+/**
+ * Register a itinerario post type.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_post_type
+ */
+function slow_itinerario_init() {
+	$labels = array(
+			'name'               => _x( 'Itinerari', 'post type general name'),
+			'singular_name'      => _x( 'Itinerario', 'post type singular name'),
+			'menu_name'          => _x( 'Itinerari', 'admin menu'),
+			'name_admin_bar'     => _x( 'Itinerario', 'add new on admin bar'),
+			'add_new'            => _x( 'Aggiungi', 'itinerario' ),
+			'add_new_item'       => __( 'Add New Itinerario'),
+			'new_item'           => __( 'Nuovo Itinerario'),
+			'edit_item'          => __( 'Edit Itinerario'),
+			'view_item'          => __( 'View Itinerario'),
+			'all_items'          => __( 'Tutti gli Itinerari'),
+			'search_items'       => __( 'Search Itinerari'),
+			'parent_item_colon'  => __( 'Parent Itinerari:'),
+			'not_found'          => __( 'No itinerari found.'),
+			'not_found_in_trash' => __( 'No itinerari found in Trash.')
+	);
+	
+	$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Itinerario percorribile.'),
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'itinerario' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'taxonomies'         => array( 'category' ),
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+	
+	register_post_type( 'book', $args );
 }
 ?>
