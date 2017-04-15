@@ -49,33 +49,6 @@ function bici_deactivation() {return;}
 
 function bici_uninstall() {return;}
 
-add_action( 'init', 'create_post_type_nodo' );
-function create_post_type_nodo() {
-	register_post_type( 'nodo',
-			array(
-					'labels' => array(
-							'name' => __( 'Nodi' ),
-							'singular_name' => __( 'Nodo' )
-					),
-					'public' => true,
-					'has_archive' => true,
-			)
-			);
-}
-
-add_action( 'init', 'create_post_type_percorso' );
-function create_post_type_percorso() {
-	register_post_type( 'percorso',
-			array(
-					'labels' => array(
-							'name' => __( 'Percorsi' ),
-							'singular_name' => __( 'Percorso' )
-					),
-					'public' => true,
-					'has_archive' => true,
-			)
-			);
-}
 add_action( 'init', 'act_nodo_init' );
 /**
  * Register a nodo post type.
