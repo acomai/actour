@@ -137,6 +137,20 @@ function act_percorso_init() {
 	register_post_type( 'act_percorso', $args );
 }
 
+function act_tipo_percorso_init() {
+	// create a new taxonomy
+	register_taxonomy(
+			'act_tipo_percorso',
+			'act_percorso',
+			array(
+					'label' => __( 'act_tipo_percorso' ),
+					'rewrite' => array( 'slug' => 'tipo_percorso' )
+					)
+			
+			);
+}
+add_action( 'init', 'act_tipo_percorso_init' );
+
 add_action( 'init', 'act_itinerario_init' );
 /**
  * Register a itinerario post type.
