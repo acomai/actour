@@ -86,7 +86,6 @@ function act_nodo_init() {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'taxonomies'         => array( 'category' ),
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
 	);
 	
@@ -130,7 +129,7 @@ function act_percorso_init() {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'taxonomies'         => array( 'category' ),
+			'taxonomies'         => array( 'act_tipo_percorso' ),
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
 	);
 	
@@ -188,7 +187,6 @@ function act_itinerario_init() {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'taxonomies'         => array( 'category' ),
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
 	);
 	
