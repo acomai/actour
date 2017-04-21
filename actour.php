@@ -3,7 +3,7 @@
 Plugin Name: Actour
 Plugin URI:  https://developer.wordpress.org/plugins/actour/
 Description: Plugin WordPress per gestire il turismo attivo
-Version:     20170420
+Version:     20170421
 Author:      Adriano Comai
 Author URI:  https://www.analisi-disegno.com/
 License:     GPL2
