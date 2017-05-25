@@ -192,4 +192,47 @@ function act_itinerario_init() {
 	
 	register_post_type( 'act_itinerario', $args );
 }
+
+add_action( 'init', 'act_area_init' );
+/**
+ * Register a area post type.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_post_type
+ */
+function act_area_init() {
+	$labels = array(
+			'name'               => _x( 'act_Aree', 'post type general name'),
+			'singular_name'      => _x( 'act_Area', 'post type singular name'),
+			'menu_name'          => _x( 'act_Aree', 'admin menu'),
+			'name_admin_bar'     => _x( 'act_Area', 'add new on admin bar'),
+			'add_new'            => _x( 'Aggiungi', 'act_area' ),
+			'add_new_item'       => __( 'Add New act_Area'),
+			'new_item'           => __( 'Nuovo act_Area'),
+			'edit_item'          => __( 'Edit act_Area'),
+			'view_item'          => __( 'View act_Area'),
+			'all_items'          => __( 'Tutte le act_Aree'),
+			'search_items'       => __( 'Search act_Aree'),
+			'parent_item_colon'  => __( 'Parent act_Aree:'),
+			'not_found'          => __( 'No aree found.'),
+			'not_found_in_trash' => __( 'No aree found in Trash.')
+	);
+	
+	$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Area turistica.'),
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'aree' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields')
+	);
+	
+	register_post_type( 'act_area', $args );
+}
 ?>
