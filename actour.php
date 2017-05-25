@@ -136,19 +136,19 @@ function act_percorso_init() {
 	register_post_type( 'act_percorso', $args );
 }
 
-function act_tipo_percorso_init() {
+function act_tassonomia_percorso_init() {
 	// create a new taxonomy
 	register_taxonomy(
-			'act_tipo_percorso',
+			'act_tassonomia_percorso',
 			'act_percorso',
 			array(
-					'label' => __( 'act_tipo_percorso' ),
-					'rewrite' => array( 'slug' => 'tipo_percorso' )
+					'label' => __( 'act_tassonomia_percorso' ),
+					'rewrite' => array( 'slug' => 'tassonomia_percorso' )
 					)
 			
 			);
 }
-add_action( 'init', 'act_tipo_percorso_init' );
+add_action( 'init', 'act_tassonomia_percorso_init' );
 
 add_action( 'init', 'act_itinerario_init' );
 /**
